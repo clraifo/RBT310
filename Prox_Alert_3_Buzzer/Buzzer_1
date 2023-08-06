@@ -1,0 +1,60 @@
+// Define pins
+const int trigPin = D2;
+const int echoPin = D3;
+const int greenLED = D4;
+const int yellowLED = D5;
+const int redLED = D6;
+const int buzzer = D7;
+
+void setup() {
+    pinMode(trigPin, OUTPUT);
+    pinMode(echoPin, INPUT);
+    pinMode(greenLED, OUTPUT);
+    pinMode(yellowLED, OUTPUT);
+    pinMode(redLED, OUTPUT);
+    pinMode(buzzer, OUTPUT);
+
+    // Initiate LEDs and buzzer to be off
+    digitalWrite(greenLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(redLED, LOW);
+    digitalWrite(buzzer, LOW);
+}
+
+void loop() {
+    long duration, distance;
+
+    // Clear the trigPin
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(2);
+
+    // Set the trigPin on HIGH state for 10 microseconds
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+
+    // Read the echoPin, pulseIn returns the duration in microseconds
+    duration = pulseIn(echoPin, HIGH);
+
+    // Calculate the distance in cm
+    distance = duration * 0.034 / 2;
+
+    // Reset outputs
+    digitalWrite(greenLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(redLED, LOW);
+    digitalWrite(buzzer, LOW);
+
+    if(distance >= 30 && distance <= 60) {
+        digitalWrite(yellowLED, HIGH);
+    } else if(distance < 30 && distance > 0) {
+        digitalWrite(redLED, HIGH);
+        digitalWrite(buzzer, HIGH);
+    } else if(distance > 60) {
+        digitalWrite(greenLED, HIGH);
+    }
+
+    delay(100);
+}
+
+

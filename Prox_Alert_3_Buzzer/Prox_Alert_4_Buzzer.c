@@ -8,7 +8,7 @@ sensor and provide feedback using LEDs and a buzzer based on the detected distan
 1. **Pin Assignments**:
     - The `trigPin` is assigned to D2, which is used to trigger the ultrasonic sound from the HC-SR04.
     - The `echoPin` is assigned to D3, which captures the reflected ultrasonic sound from objects.
-    - LEDs are connected to pins D4 (Green), D5 (Yellow), and D6 (Red).
+    - LEDs are connected to pins D4 (Green), D5 (Yellow), and D6 (Red).  
     - The passive buzzer is connected to pin D7.
 
 2. **Setup**:

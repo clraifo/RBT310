@@ -1,27 +1,27 @@
-//Proximity detection with audiovisual alerts and data offboarding
-/*
+/*Proximity detection with audiovisual alerts 
+
 **Particle Photon with HC-SR04 Ultrasonic Sensor**
 
-This code is designed for the Particle Photon microcontroller to interact with the HC-SR04 ultrasonic distance 
+This code is written  for the Particle Photon microcontroller to interact with the HC-SR04 ultrasonic distance 
 sensor and provide feedback using LEDs and a buzzer based on the detected distance.
 
-1. **Pin Assignments**:
+1. Pin Assignments:
     - The `trigPin` is assigned to D2, which is used to trigger the ultrasonic sound from the HC-SR04.
     - The `echoPin` is assigned to D3, which captures the reflected ultrasonic sound from objects.
-    - LEDs are connected to pins D4 (Green), D5 (Yellow), and D6 (Red).  
+    - LEDs are connected to pins D4 (Green), D5 (Yellow), and D6 (Red).
     - The passive buzzer is connected to pin D7.
 
-2. **Setup**:
+2. Setup:
     - All pins are initialized. The `trigPin` is set as an OUTPUT since it sends the ultrasonic sound. The `echoPin` 
     is set as an INPUT because it listens for the reflected sound. LEDs and buzzer pins are set as OUTPUTs since 
     they are actuated based on the distance detected.
     - At the start, all LEDs and the buzzer are set to the OFF state.
 
-3. **Tone Function**:
+3. Tone Function:
     - The `tone()` function creates a sound on the passive buzzer by rapidly toggling it on and off at a specified 
-    frequency. The duration of this tone is kept relatively short to not be too intrusive.
+    frequency. 
 
-4. **Main Loop**:
+4. Main Loop:
     - The `trigPin` is briefly set HIGH, sending out a burst of ultrasonic sound. This sound travels until it hits 
     an object and then reflects back.
     - The `echoPin` listens for the reflected sound's return. The time taken for the sound to travel out and reflect 
@@ -34,7 +34,7 @@ sensor and provide feedback using LEDs and a buzzer based on the detected distan
         detection), the Green LED is turned ON.
         - Objects beyond 100 centimeters or no object at all won't activate any of the LEDs.
 
-5. **Delays**:
+5. Delays:
     - A short delay is added at the end of each loop iteration to prevent excessive readings and to give a clearer 
     indication on the LEDs and buzzer. 
 
